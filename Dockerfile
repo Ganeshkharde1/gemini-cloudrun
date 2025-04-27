@@ -18,4 +18,4 @@ RUN pip install --no-cache-dir -r requirements.txt
 EXPOSE 8085
 
 # Command to run the application
-CMD ["python", "final.py"]
+CMD ["python", "app.py"]
