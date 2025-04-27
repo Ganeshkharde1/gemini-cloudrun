@@ -91,5 +91,5 @@ if __name__ == '__main__':
     # Use host='0.0.0.0' to make the server accessible externally (e.g., in Docker or a VM)
     # For local testing, 127.0.0.1 is the default.
     print("Starting Flask server...")
-    app.run(host='127.0.0.1', port=5000, debug=True)
-    print("Flask server stopped.")
+    port = int(os.environ.get('PORT', 8080))  # Use Cloud Run's port if available
+    app.run(host='0.0.0.0', port=port, debug=False)
