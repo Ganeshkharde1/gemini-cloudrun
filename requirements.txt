@@ -1,0 +1,12 @@
+# requirements.txt
+# List of Python packages required to run the Flask application
+
+Flask==3.0.3             # Web framework
+google-generativeai==0.6.0 # Google Gemini API client library
+python-dotenv==1.0.0     # Load environment variables from a .env file (optional, but included as it's in the script)
+
+# You can specify exact versions as shown above (replace with desired versions)
+# or use just the package name to install the latest compatible version:
+# Flask
+# google-generativeai
+# python-dotenv
