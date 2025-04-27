@@ -1,21 +1,21 @@
-FROM python:3.11
+# Use an official lightweight Python image
+FROM python:3.11-slim
 
-# Set the working directory
+# Set environment variables to prevent Python from buffering stdout/stderr
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Copy the local project files into the container
 COPY . ./
 
-# Install the required dependencies
-RUN pip install -r requirements.txt
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the .env file
-# COPY .env .env
-# Make port 8080 available to the world outside this container
+# Expose the port that Cloud Run expects
 EXPOSE 8080
 
-# Run app.py when the container launches
-# CMD python -m streamlit run final.py
-# CMD streamlit run final.py --server.port 8080 --server.address 0.0.0.0 --browser.serverAddress 0.0.0.0
-CMD ["streamlit", "run", "final.py", "--server.port=8080", "--server.address=0.0.0.0", "--server.enableCORS=false"]
-
+# Command to run the application
+CMD ["python", "final.py"]
