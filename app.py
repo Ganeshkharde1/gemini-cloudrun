@@ -59,7 +59,7 @@ def generate_response():
     # --- Call Gemini API ---
     try:
         # Choose a model (gemini-pro is good for text generation)
-        model = genai.GenerativeModel('gemini-pro')
+        model = genai.GenerativeModel('gemini-1.5-pro-latest')
 
         # Generate content
         # Note: For more complex interactions (like chat history),
@@ -91,5 +91,5 @@ if __name__ == '__main__':
     # Use host='0.0.0.0' to make the server accessible externally (e.g., in Docker or a VM)
     # For local testing, 127.0.0.1 is the default.
     print("Starting Flask server...")
-    port = int(os.environ.get('PORT', 8085))  # Use Cloud Run's port if available
+    port = int(8085)  # Use Cloud Run's port if available
     app.run(host='0.0.0.0', port=port, debug=False)
